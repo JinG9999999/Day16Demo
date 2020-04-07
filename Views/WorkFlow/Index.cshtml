@@ -1,0 +1,143 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <form role="form">
+            <h1>设置工作流</h1>
+            <p>
+
+            </p>
+            <div class="form-group col-md-4">
+                <select class="form-control col-md-2" id="optionLive">
+                    <option>请假</option>
+                    <option>旷工</option>
+                </select>
+            </div>
+        </form>
+        <br />
+        <br />
+        <div class="table-bordered  col-sm-pull-3  col-md-8 text-center">
+            <form role="form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" value="oen" name="days"> 1天以下
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="two" name="days"> 2天以下
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="three" name="days"> 3天以下
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="four" name="days"> 3天以上
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class=" col-sm-push-1 col-md-8 text-center">
+            <form role="form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" value="oneLevel" id="one" checked="checked" name="audit"> 一级审核
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="twoLevel" id="two" name="audit"> 二级审核
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="threeLevel" id="three" name="audit"> 三级审核
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class=" col-sm-push-1 col-md-8 text-center"  style="display:none" id="selOneLevel">
+            <div class="form-group col-md-4">
+                <select class="form-control col-md-2" id="dd1" name="selAduit">
+                    <option>选择一级审核</option>
+                </select>
+            </div>
+        </div>
+        <div class=" col-sm-push-1 col-md-8 text-center" id="dd2"  style="display:none" id="selTwoLevel">
+            <div class="form-group col-md-4">
+                <select class="form-control col-md-2" name="selAduit">
+                    <option>选择二级审核</option>
+                </select>
+            </div>
+        </div>
+        <div class=" col-sm-push-1 col-md-8 text-center" id="dd3"  style="display:none" id="selThreeLevel">
+            <div class="form-group col-md-4">
+                <select class="form-control col-md-2" name="selAduit">
+                    <option>选择三级审核</option>
+                </select>
+            </div>
+        </div>
+
+        <br />
+        <div class=" col-sm-push-1 col-md-8 text-center" >
+            <input type="button" value="保存工作流程" id="save" />
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        var selVal = $("input[name='audit']:checked").val();
+        if (selVal == 'oneLevel') {
+            $("#selOneLevel").show();
+            $("#selTwoLevel").hide();
+            $("#selThreeLevel").hide();
+        }
+        if (selVal == 'twoLevel') {
+            $("#selOneLevel").show();
+            $("#selTwoLevel").show();
+            $("#selThreeLevel").hide();
+        }
+        if (selVal == 'threeLevel') {
+            $("#selOneLevel").show();
+            $("#selTwoLevel").show();
+            $("#selThreeLevel").show();
+        }
+
+        $("#one").click(function () {
+            $("#selOneLevel").show();
+            $("#selTwoLevel").hide();
+            $("#selThreeLevel").hide();
+        })
+        $("#two").click(function () {
+            $("#selOneLevel").show();
+            $("#selTwoLevel").show();
+            $("#selThreeLevel").hide();
+        })
+        $("#three").click(function () {
+            $("#selOneLevel").show();
+            $("#selTwoLevel").show();
+            $("#selThreeLevel").show();
+        })
+
+        $("#save").click(function () {
+            var first = $("#optionLive").val();
+            var secondVal = $("input[name='audit']:checked").val();
+            var three = $("select[name='selAduit']:visible").val();
+
+            var three1 = $("#dd1").val();
+            var three2 = $("#dd2").val();
+            var three3 = $("#dd3").val();
+
+
+        })
+    })
+</script>
+
+
