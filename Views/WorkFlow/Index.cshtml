@@ -14,24 +14,24 @@
     <title>Index</title>
 </head>
 <body>
-    <div>
-        <form role="form">
+    <div class="container">
+        <div class="row form-group">
             <h1>设置工作流</h1>
-            <p>
-
-            </p>
-            <div class="form-group col-md-4">
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
                 <select class="form-control col-md-2" id="optionLive">
                     <option>请假</option>
                     <option>旷工</option>
                 </select>
             </div>
-        </form>
-        <br />
-        <br />
-        <div class="table-bordered  col-sm-pull-3  col-md-8 text-center">
-            <form role="form" class="form-horizontal">
-                <div class="form-group">
+
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <div class="table-bordered">
                     <label class="radio-inline">
                         <input type="radio" value="oen" name="days"> 1天以下
                     </label>
@@ -45,48 +45,47 @@
                         <input type="radio" value="four" name="days"> 3天以上
                     </label>
                 </div>
-            </form>
+            </div>
+            <div class="col-md-6">
+            </div>
         </div>
-        <div class=" col-sm-push-1 col-md-8 text-center">
-            <form role="form" class="form-horizontal">
-                <div class="form-group">
-                    <label class="radio-inline">
-                        <input type="radio" value="oneLevel" id="one" checked="checked" name="audit"> 一级审核
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" value="twoLevel" id="two" name="audit"> 二级审核
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" value="threeLevel" id="three" name="audit"> 三级审核
-                    </label>
-                </div>
-            </form>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label class="radio-inline">
+                    <input type="radio" value="oneLevel" id="one" checked="checked" name="audit"> 一级审核
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" value="twoLevel" id="two" name="audit"> 二级审核
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" value="threeLevel" id="three" name="audit"> 三级审核
+                </label>
+            </div>
+            <div class="col-md-6">
+            </div>
         </div>
-        <div class=" col-sm-push-1 col-md-8 text-center"  style="display:none" id="selOneLevel">
-            <div class="form-group col-md-4">
+        <div class="row form-group">
+            <div class="col-md-6">
                 <select class="form-control col-md-2" id="dd1" name="selAduit">
                     <option>选择一级审核</option>
                 </select>
-            </div>
-        </div>
-        <div class=" col-sm-push-1 col-md-8 text-center" id="dd2"  style="display:none" id="selTwoLevel">
-            <div class="form-group col-md-4">
-                <select class="form-control col-md-2" name="selAduit">
+                <select class="form-control col-md-2" id="dd2" name="selAduit">
                     <option>选择二级审核</option>
                 </select>
-            </div>
-        </div>
-        <div class=" col-sm-push-1 col-md-8 text-center" id="dd3"  style="display:none" id="selThreeLevel">
-            <div class="form-group col-md-4">
-                <select class="form-control col-md-2" name="selAduit">
+                <select class="form-control col-md-2" id="dd3" name="selAduit">
                     <option>选择三级审核</option>
                 </select>
             </div>
-        </div>
+            <div class="col-md-6">
 
-        <br />
-        <div class=" col-sm-push-1 col-md-8 text-center" >
-            <input type="button" value="保存工作流程" id="save" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <input type="button" value="保存工作流程" id="save" />
+            </div>
+            <div class="col-md-6">
+            </div>
         </div>
     </div>
 </body>
@@ -95,35 +94,35 @@
     $(function () {
         var selVal = $("input[name='audit']:checked").val();
         if (selVal == 'oneLevel') {
-            $("#selOneLevel").show();
-            $("#selTwoLevel").hide();
-            $("#selThreeLevel").hide();
+            $("#dd1").show();
+            $("#dd2").hide();
+            $("#dd3").hide();
         }
         if (selVal == 'twoLevel') {
-            $("#selOneLevel").show();
-            $("#selTwoLevel").show();
-            $("#selThreeLevel").hide();
+            $("#dd1").show();
+            $("#dd2").show();
+            $("#dd3").hide();
         }
         if (selVal == 'threeLevel') {
-            $("#selOneLevel").show();
-            $("#selTwoLevel").show();
-            $("#selThreeLevel").show();
+            $("#dd1").show();
+            $("#dd2").show();
+            $("#dd3").show();
         }
 
         $("#one").click(function () {
-            $("#selOneLevel").show();
-            $("#selTwoLevel").hide();
-            $("#selThreeLevel").hide();
+            $("#dd1").show();
+            $("#dd2").hide();
+            $("#dd3").hide();
         })
         $("#two").click(function () {
-            $("#selOneLevel").show();
-            $("#selTwoLevel").show();
-            $("#selThreeLevel").hide();
+            $("#dd1").show();
+            $("#dd2").show();
+            $("#dd3").hide();
         })
         $("#three").click(function () {
-            $("#selOneLevel").show();
-            $("#selTwoLevel").show();
-            $("#selThreeLevel").show();
+            $("#dd1").show();
+            $("#dd2").show();
+            $("#dd3").show();
         })
 
         $("#save").click(function () {
